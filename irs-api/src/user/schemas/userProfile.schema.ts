@@ -6,7 +6,20 @@ export class UserProfile {
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   user: Types.ObjectId;
 
-  @Prop({ type: String, enum: ["Backend Developer", "Frontend Developer"], required: true })
+  @Prop({
+    type: String,
+    enum: [
+      'Backend Developer',
+      'Frontend Developer',
+      'Flutter Developer',
+      'Data Scientist',
+      'Machine Learning Engineer',
+      'AI Engineer',
+      'DevOps Engineer',
+      'Full Stack Developer',
+    ],
+    required: true,
+  })
   jobTitle: string;
 
   @Prop({ required: false })

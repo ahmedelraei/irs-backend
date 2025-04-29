@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Param, Delete, Query, UseGuards, Req } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Query,
+  UseGuards,
+  Req,
+} from '@nestjs/common';
 import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { SearchJobDto } from './dto/search-job.dto';
@@ -42,4 +52,4 @@ export class JobController {
   async remove(@Param('id') id: string) {
     return this.jobService.delete(id);
   }
-} 
+}

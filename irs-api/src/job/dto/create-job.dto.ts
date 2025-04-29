@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsArray, IsNumber, MinLength, MaxLength } from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, MaxLength } from 'class-validator';
 
 export class CreateJobDto {
   @IsString()
@@ -12,4 +12,10 @@ export class CreateJobDto {
   @MinLength(10)
   @MaxLength(2000)
   description: string;
-} 
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(5)
+  @MaxLength(2000)
+  applyUrl: string;
+}

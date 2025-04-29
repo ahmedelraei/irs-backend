@@ -21,6 +21,9 @@ export class Job {
   @Prop({ type: [Number], default: [] })
   jobTensor: number[];
 
+  @Prop({ type: String })
+  applyUrl: string;
+
   @Prop({ type: String, enum: JobStatus, default: JobStatus.PENDING })
   status: JobStatus;
 
@@ -28,4 +31,4 @@ export class Job {
   error: string | null;
 }
 
-export const JobSchema = SchemaFactory.createForClass(Job); 
+export const JobSchema = SchemaFactory.createForClass(Job);

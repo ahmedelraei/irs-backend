@@ -18,7 +18,6 @@ import { S3File } from 'src/types/upload.types';
 import { ClientProxy } from '@nestjs/microservices';
 import { promises as fsp } from 'fs';
 import * as pdfParse from 'pdf-parse';
-import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class UserService {
@@ -34,9 +33,7 @@ export class UserService {
   ) {}
 
   async register(createUserDto: CreateUserDto): Promise<GetUserDto> {
-    const session = await this.connection.startSession();
     try {
-      await session.startTransaction();
       const existingUser = await this.userModel
         .findOne({ email: createUserDto.email })
         .exec();
@@ -51,24 +48,32 @@ export class UserService {
         password: hashedPassword,
       });
       await newUser.save();
-      const profile = new this.userProfileModel({ user: newUser, jobTitle });
+      const profile = new this.userProfileModel({
+        user: newUser._id,
+        jobTitle,
+      });
       await profile.save();
-      await session.commitTransaction();
-      
-      const populatedUser = await this.userModel.findById(newUser._id).populate('profile');
+
+      const populatedUser = await this.userModel
+        .findById(newUser._id)
+        .populate('profile')
+        .lean();
 
       this.jobProducerClient.emit('job.fetch', {
         jobTitles: [jobTitle],
       });
 
-      return plainToInstance(GetUserDto, populatedUser);
+      // Create a clean object to prevent circular references
+      const userDto = {
+        id: populatedUser._id.toString(),
+        email: populatedUser.email,
+        name: `${populatedUser.firstName} ${populatedUser.lastName}`,
+        jobTitle: populatedUser.profile?.jobTitle || null,
+      };
+
+      return userDto as GetUserDto;
     } catch (error) {
-      if (session.inTransaction()) {
-        await session.abortTransaction();
-      }
       throw error;
-    } finally {
-      session.endSession();
     }
   }
 
@@ -112,14 +117,15 @@ export class UserService {
       userId,
       resume: pdfData.text,
     });
-    
   }
 
   async updateProfile(
     user: UserDocument,
     updateUserDto: UpdateUserDto,
   ): Promise<UserProfileDocument> {
-    const profile = await this.userProfileModel.findOne({ user: new ObjectId(user.id) });
+    const profile = await this.userProfileModel.findOne({
+      user: new ObjectId(user.id),
+    });
     if (!profile) {
       throw new BadRequestException('Profile not found');
     }

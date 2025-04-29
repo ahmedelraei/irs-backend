@@ -4,7 +4,7 @@ import { Transport } from '@nestjs/microservices';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   // Enable validation
   app.useGlobalPipes(
