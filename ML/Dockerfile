@@ -13,9 +13,7 @@ COPY Pipfile Pipfile.lock ./
 
 # Install pipenv and dependencies
 RUN pip install --no-cache-dir pipenv && \
-    pipenv install --deploy --system && \
-    pip uninstall -y pipenv virtualenv-clone virtualenv
-
+    pipenv install --deploy --system
     
 COPY model.py ./
 
