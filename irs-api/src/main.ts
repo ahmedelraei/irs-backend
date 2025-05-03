@@ -44,6 +44,7 @@ async function bootstrap() {
       'X-Forwarded-Proto',
       'X-Requested-With',
     ],
+    credentials: false, // Disable credentials since only JWT is used
   });
 
   // Enable validation
