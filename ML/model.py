@@ -1,6 +1,7 @@
 import pika
 import torch
 import numpy as np
+import os
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import json
 
@@ -10,7 +11,7 @@ tokenizer = T5Tokenizer.from_pretrained(model_name)
 model = T5ForConditionalGeneration.from_pretrained(model_name)
 
 # RabbitMQ Configuration
-RABBITMQ_HOST = "localhost"
+RABBITMQ_HOST = os.getenv("RABBITMQ_HOST", "localhost")
 RESUME_QUEUE = "texts_queue"
 JOB_QUEUE = "job_texts_queue"
 

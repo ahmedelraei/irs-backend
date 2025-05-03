@@ -1,0 +1,71 @@
+name: Deployment Staging
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: staging
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Staging
+        run: |
+          NODE_ENV='production' \
+          PORT='${{ secrets.PORT }}' \
+          MONGODB_DB='${{ secrets.MONGODB_DB }}' \
+          MONGODB_USER='${{ secrets.MONGODB_USER }}' \
+          MONGODB_PASSWORD='${{ secrets.MONGODB_PASSWORD }}' \
+          MONGODB_DB='${{ secrets.MONGODB_DB }}' \
+          MONGODB_URI='mongodb://${{ secrets.MONGODB_USER }}:${{ secrets.MONGODB_PASSWORD }}@${{ secrets.MONGODB_HOST }}:27017/authSource=admin' \
+          JWT_SECRET='${{ secrets.JWT_SECRET }}' \
+          JWT_EXPIRATION='${{ secrets.JWT_EXPIRATION }}' \
+          JWT_REFRESH_EXPIRATION='${{ secrets.JWT_REFRESH_EXPIRATION }}' \
+          AWS_ACCESS_KEY_ID='${{ secrets.AWS_ACCESS_KEY_ID }}' \
+          AWS_ACCESS_SECRET_KEY='${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
+          AWS_S3_BUCKET_NAME='${{ secrets.AWS_S3_BUCKET_NAME }}' \
+          AWS_REGION='${{ secrets.AWS_REGION }}' \
+          docker compose -f docker-compose.staging.yaml up -d --build
+
+      - name: Wait for MongoDB to Be Ready
+        run: |
+          echo "Waiting for MongoDB to be ready..."
+          sleep 10
+          MAX_RETRIES=30
+          RETRIES=0
+          
+          until docker compose -f docker-compose.staging.yaml exec db mongosh --host localhost --port 27017 -u ${{ secrets.MONGODB_USER }} -p ${{ secrets.MONGODB_PASSWORD }} --authenticationDatabase admin --eval "db.adminCommand('ping')" || [ $RETRIES -eq $MAX_RETRIES ]; do
+            echo "Waiting for MongoDB to be ready... Attempt: $RETRIES/$MAX_RETRIES"
+            sleep 5
+            RETRIES=$((RETRIES+1))
+          done
+          
+          if [ $RETRIES -eq $MAX_RETRIES ]; then
+            echo "MongoDB failed to start after $MAX_RETRIES attempts"
+            exit 1
+          fi
+
+      - name: Wait for RabbitMQ to Be Ready
+        run: |
+          echo "Waiting for RabbitMQ to be ready..."
+          sleep 10
+          MAX_RETRIES=30
+          RETRIES=0
+          
+          until docker compose -f docker-compose.staging.yaml exec rabbitmq rabbitmq-diagnostics -q ping || [ $RETRIES -eq $MAX_RETRIES ]; do
+            echo "Waiting for RabbitMQ to be ready... Attempt: $RETRIES/$MAX_RETRIES"
+            sleep 5
+            RETRIES=$((RETRIES+1))
+          done
+          
+          if [ $RETRIES -eq $MAX_RETRIES ]; then
+            echo "RabbitMQ failed to start after $MAX_RETRIES attempts"
+            exit 1
+          fi
+          
+      - name: Check Running Containers
+        run: docker ps
