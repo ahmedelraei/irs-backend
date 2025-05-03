@@ -119,10 +119,6 @@ export class JobService {
           $match: {
             status: JobStatus.COMPLETED,
             jobTensor: { $exists: true, $ne: null },
-            // Add title matching using regex to find partial matches
-            title: {
-              $regex: new RegExp(jobTitleMatches.join('|'), 'i'),
-            },
           },
         },
         {
