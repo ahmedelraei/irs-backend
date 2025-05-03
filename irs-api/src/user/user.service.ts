@@ -109,14 +109,45 @@ export class UserService {
   }
 
   async processResume(resume: Express.Multer.File, userId: string) {
-    const fileBuffer = await fsp.readFile(resume.path);
-    const pdfData = await pdfParse(fileBuffer);
-    console.log(userId);
-    // Produce message to RabbitMQ
-    this.producerClient.emit('resume.uploaded', {
-      userId,
-      resume: pdfData.text,
-    });
+    if (!resume) {
+      console.log('No resume file provided, skipping processing');
+      return;
+    }
+
+    try {
+      let resumeText = '';
+
+      // For S3 storage (location property exists)
+      if ('location' in resume) {
+        const s3File = resume as S3File;
+        console.log('Processing S3 file:', s3File.location);
+
+        // Since we can't directly read S3 files here, we'll send the URL to the ML service
+        this.producerClient.emit('resume.uploaded', {
+          userId,
+          resumeUrl: s3File.location,
+          isS3: true,
+        });
+        return;
+      }
+      // For local storage (path property exists)
+      else if ('path' in resume) {
+        console.log('Processing local file:', resume.path);
+        // Read and parse the PDF file
+        const fileBuffer = await fsp.readFile(resume.path);
+        const pdfData = await pdfParse(fileBuffer);
+        resumeText = pdfData.text;
+      }
+
+      // Produce message to RabbitMQ for local files
+      this.producerClient.emit('resume.uploaded', {
+        userId,
+        resume: resumeText,
+      });
+    } catch (error) {
+      console.error('Error processing resume:', error);
+      throw new BadRequestException('Failed to process resume file');
+    }
   }
 
   async updateProfile(

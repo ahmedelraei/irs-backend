@@ -19,6 +19,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { EventPattern } from '@nestjs/microservices';
 import { AuthenticatedRequest } from 'src/types';
+import { S3File } from 'src/types/upload.types';
 
 @Controller('users')
 export class UserController {
@@ -59,9 +60,21 @@ export class UserController {
     @Body() updateUserDto: UpdateUserDto,
     @UploadedFile() resumeFile: Express.Multer.File,
   ) {
-    if (resumeFile && resumeFile.path) {
-      updateUserDto.resume = resumeFile.path;
+    console.log('Resume file:', resumeFile);
+
+    // Handle both local storage and S3 storage file paths
+    if (resumeFile) {
+      // For S3 storage (location property exists)
+      if ('location' in resumeFile) {
+        const s3File = resumeFile as S3File;
+        updateUserDto.resume = s3File.location;
+      }
+      // For local storage (path property exists)
+      else if ('path' in resumeFile) {
+        updateUserDto.resume = resumeFile.path;
+      }
     }
+
     await this.userService.processResume(resumeFile, req.user.id);
     return await this.userService.updateProfile(req.user, updateUserDto);
   }

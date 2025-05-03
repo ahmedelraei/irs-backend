@@ -37,6 +37,7 @@ const localStorage = multer.diskStorage({
 const s3Storage = multerS3({
   s3,
   bucket: process.env.AWS_S3_BUCKET_NAME,
+  acl: 'public-read',
   metadata: (_req, file, cb) => {
     cb(null, { fieldName: file.fieldname });
   },
@@ -46,5 +47,16 @@ const s3Storage = multerS3({
 });
 
 export const uploadOptions = (): multer.Options => ({
-  storage: localStorage,
+  storage: s3Storage,
+  fileFilter: (_req, file, cb) => {
+    // Only accept PDF files
+    if (file.mimetype === 'application/pdf') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  },
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB max file size
+  },
 });

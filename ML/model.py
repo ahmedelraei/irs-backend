@@ -5,6 +5,10 @@ import numpy as np
 import os
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import json
+import requests
+import tempfile
+import PyPDF2
+import io
 
 # Load environment variables from .env file
 load_dotenv()
@@ -31,12 +35,41 @@ def get_t5_embedding(text):
     embedding = encoder_outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
     return embedding.tolist()  # Convert NumPy array to list for JSON compatibility
 
+# Function to download and extract text from S3 PDF
+def extract_text_from_s3_pdf(url):
+    try:
+        # Download the PDF file from S3
+        response = requests.get(url)
+        response.raise_for_status()  # Check if the download was successful
+        
+        # Create a file-like object from the content
+        pdf_file = io.BytesIO(response.content)
+        
+        # Extract text using PyPDF2
+        pdf_reader = PyPDF2.PdfReader(pdf_file)
+        text = ""
+        for page_num in range(len(pdf_reader.pages)):
+            text += pdf_reader.pages[page_num].extract_text()
+        
+        return text
+    except Exception as e:
+        print(f"Error extracting text from S3 PDF: {e}")
+        return ""
+
 # RabbitMQ Callback Functions
 def on_resume_request(ch, method, properties, body):
     """ Processes incoming resume requests, generates an embedding, and sends it back. """
     message = json.loads(body.decode("utf-8"))
     user_id = message['data']['userId']
-    text = message['data']['resume']
+    
+    # Check if it's an S3 file or direct text
+    if 'isS3' in message['data'] and message['data']['isS3']:
+        # Extract the resume URL and download the PDF
+        resume_url = message['data']['resumeUrl']
+        text = extract_text_from_s3_pdf(resume_url)
+    else:
+        # Use the text directly
+        text = message['data']['resume']
 
     # Generate the embedding
     embedding = get_t5_embedding(text)
