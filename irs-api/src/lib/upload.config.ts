@@ -47,7 +47,7 @@ const s3Storage = multerS3({
 });
 
 export const uploadOptions = (): multer.Options => ({
-  storage: s3Storage,
+  storage: isDevelopment ? localStorage : s3Storage,
   fileFilter: (_req, file, cb) => {
     // Only accept PDF files
     if (file.mimetype === 'application/pdf') {
