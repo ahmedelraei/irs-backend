@@ -1,5 +1,8 @@
 import { Transport, ClientsModuleOptions } from '@nestjs/microservices';
 
+import { config } from 'dotenv';
+config();
+
 const url = process.env.RABBITMQ_URL || 'amqp://guest:guest@localhost:5672';
 
 export const rabbitMQConfig: ClientsModuleOptions = {
