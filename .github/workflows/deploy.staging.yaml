@@ -28,9 +28,10 @@ jobs:
           JWT_EXPIRATION=${{ secrets.JWT_EXPIRATION }}
           JWT_REFRESH_EXPIRATION=${{ secrets.JWT_REFRESH_EXPIRATION }}
           AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_ACCESS_SECRET_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_SECRET_KEY=${{ secrets.AWS_ACCESS_SECRET_KEY }}
           AWS_S3_BUCKET_NAME=${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_REGION=${{ secrets.AWS_REGION }}
+          RABBITMQ_URL=${{ secrets.RABBITMQ_URL }} \
           EOF
           
           echo "Environment variables set up successfully."
@@ -47,9 +48,10 @@ jobs:
           JWT_EXPIRATION='${{ secrets.JWT_EXPIRATION }}' \
           JWT_REFRESH_EXPIRATION='${{ secrets.JWT_REFRESH_EXPIRATION }}' \
           AWS_ACCESS_KEY_ID='${{ secrets.AWS_ACCESS_KEY_ID }}' \
-          AWS_ACCESS_SECRET_KEY='${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
+          AWS_ACCESS_SECRET_KEY='${{ secrets.AWS_ACCESS_SECRET_KEY }}' \
           AWS_S3_BUCKET_NAME='${{ secrets.AWS_S3_BUCKET_NAME }}' \
           AWS_REGION='${{ secrets.AWS_REGION }}' \
+          RABBITMQ_URL=${{ secrets.RABBITMQ_URL }} \
           docker compose -f docker-compose.staging.yaml up -d --build
 
       - name: Wait for MongoDB to Be Ready
