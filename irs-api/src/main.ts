@@ -2,6 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Transport } from '@nestjs/microservices';
 import { ValidationPipe } from '@nestjs/common';
+import { config } from 'dotenv';
+
+config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -22,7 +25,7 @@ async function bootstrap() {
   app.connectMicroservice({
     transport: Transport.RMQ,
     options: {
-      urls: ['amqp://guest:guest@localhost:5672'],
+      urls: [process.env.RABBITMQ_URL],
       queue: 'job_texts_embeddings',
       queueOptions: {
         durable: false,
@@ -34,7 +37,7 @@ async function bootstrap() {
   app.connectMicroservice({
     transport: Transport.RMQ,
     options: {
-      urls: ['amqp://guest:guest@localhost:5672'],
+      urls: [process.env.RABBITMQ_URL],
       queue: 'text_embeddings',
       queueOptions: {
         durable: false,
