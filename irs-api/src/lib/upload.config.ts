@@ -46,5 +46,5 @@ const s3Storage = multerS3({
 });
 
 export const uploadOptions = (): multer.Options => ({
-  storage: isDevelopment ? localStorage : s3Storage,
+  storage: localStorage,
 });
