@@ -89,7 +89,7 @@ export class JobService {
       .exec();
   }
 
-  async getRecommendedJobs(userId: string, limit: number = 25): Promise<Job[]> {
+  async getRecommendedJobs(userId: string, limit: number = 10): Promise<Job[]> {
     console.log('Getting recommended jobs for user:', userId);
 
     // Validate limit
