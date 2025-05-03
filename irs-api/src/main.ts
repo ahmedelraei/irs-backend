@@ -7,7 +7,45 @@ import { config } from 'dotenv';
 config();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule);
+
+  app.enableCors({
+    origin: true,
+    credentials: true,
+    methods: 'GET,PUT,PATCH,POST,DELETE',
+    allowedHeaders: [
+      'Origin',
+      'Accept',
+      'DNT',
+      'Authorization',
+      'Content-Type',
+      'User-Agent',
+      'X-Requested-With',
+      'If-Modified-Since',
+      'Cache-Control',
+      'Range',
+      'Accept-Encoding',
+      'Accept-Language',
+      'Content-Language',
+      'Content-Range',
+      'X-Forwarded-For',
+      'X-Forwarded-Proto',
+      'X-Real-IP',
+    ],
+    exposedHeaders: [
+      'Origin',
+      'Authorization',
+      'Content-Type',
+      'User-Agent',
+      'Accept-Encoding',
+      'Accept-Language',
+      'Content-Language',
+      'Content-Range',
+      'X-Forwarded-For',
+      'X-Forwarded-Proto',
+      'X-Requested-With',
+    ],
+  });
 
   // Enable validation
   app.useGlobalPipes(

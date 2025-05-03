@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
+import { CreateJobsBulkDto } from './dto/create-jobs-bulk.dto';
 import { SearchJobDto } from './dto/search-job.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { AuthenticatedRequest } from 'src/types';
@@ -22,6 +23,11 @@ export class JobController {
   @Post()
   async create(@Body() createJobDto: CreateJobDto) {
     return this.jobService.create(createJobDto);
+  }
+
+  @Post('bulk')
+  async createBulk(@Body() createJobsBulkDto: CreateJobsBulkDto) {
+    return this.jobService.createBulk(createJobsBulkDto.jobs);
   }
 
   @Get()

@@ -1,9 +1,13 @@
+from dotenv import load_dotenv
 import pika
 import torch
 import numpy as np
 import os
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import json
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Load the T5 Model
 model_name = "t5-small"

@@ -9,6 +9,7 @@ numpy = "*"
 torch = "*"
 transformers = "*"
 sentencepiece = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

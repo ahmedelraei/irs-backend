@@ -30,6 +30,23 @@ export class JobService {
     return savedJob;
   }
 
+  async createBulk(createJobsDto: CreateJobDto[]): Promise<Job[]> {
+    // Create all jobs in the database
+    const createdJobs = await this.jobModel.insertMany(createJobsDto);
+
+    // Publish each job for tensor generation
+    createdJobs.forEach((job) => {
+      const combinedText = `${job.title}. ${job.description}`;
+
+      this.client.emit('job.process', {
+        jobId: job._id.toString(),
+        text: combinedText,
+      });
+    });
+
+    return createdJobs;
+  }
+
   async findAll(): Promise<Job[]> {
     return this.jobModel.find().exec();
   }
@@ -72,7 +89,7 @@ export class JobService {
       .exec();
   }
 
-  async getRecommendedJobs(userId: string, limit: number = 10): Promise<Job[]> {
+  async getRecommendedJobs(userId: string, limit: number = 25): Promise<Job[]> {
     console.log('Getting recommended jobs for user:', userId);
 
     // Validate limit

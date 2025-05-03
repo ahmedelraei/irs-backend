@@ -1,0 +1,382 @@
+{
+  "jobs": [
+    {
+      "title": "NestJS Backend Intern",
+      "company": "TechNova",
+      "description": "Looking for an enthusiastic intern with interest in TypeScript and NestJS to help build scalable microservices. You will assist in implementing RESTful APIs, working with databases, and learning backend development best practices.",
+      "applyUrl": "https://example.com/apply/tech-nova/nestjs-intern"
+    },
+    {
+      "title": "Backend Development Intern (NestJS)",
+      "company": "DataFlow Systems",
+      "description": "Join our engineering team as an intern to learn and contribute to backend services using NestJS. You'll assist in implementing business logic, optimizing database queries, and collaborating with frontend developers.",
+      "applyUrl": "https://example.com/apply/dataflow/backend-intern"
+    },
+    {
+      "title": "Full Stack NestJS Intern",
+      "company": "CloudScale",
+      "description": "Seeking a motivated intern with interest in NestJS and Angular to work on our cloud management platform. You'll gain experience in database design, API implementation, and frontend integration under mentorship.",
+      "applyUrl": "https://example.com/apply/cloudscale/fullstack-intern"
+    },
+    {
+      "title": "NestJS Microservices Intern",
+      "company": "FinTech Solutions",
+      "description": "Internship opportunity to learn about building financial technology platforms using NestJS microservices architecture. You'll gain exposure to message brokers, distributed systems, and financial domain knowledge.",
+      "applyUrl": "https://example.com/apply/fintech/microservices-intern"
+    },
+    {
+      "title": "Django Backend Intern",
+      "company": "GreenTech",
+      "description": "Join our sustainability-focused startup as an intern to learn backend development using Django. You'll assist with designing data models, implementing simple APIs, and learning testing methodologies.",
+      "applyUrl": "https://example.com/apply/greentech/django-intern"
+    },
+    {
+      "title": "Python Django Intern",
+      "company": "Health Analytics",
+      "description": "Internship opportunity to work on our healthcare data platform built with Django and PostgreSQL. You'll learn about data processing pipelines, RESTful APIs, and healthcare system integrations.",
+      "applyUrl": "https://example.com/apply/healthanalytics/django-intern"
+    },
+    {
+      "title": "Django Backend Intern",
+      "company": "EduTech Platforms",
+      "description": "Help build our education platform as an intern using Django. You'll assist with implementing features like course management, user authentication, and gain valuable experience in web development.",
+      "applyUrl": "https://example.com/apply/edutech/backend-intern"
+    },
+    {
+      "title": "Django REST Framework Intern",
+      "company": "API Services Inc",
+      "description": "Join our team as an intern to learn about building scalable APIs using Django REST Framework. You'll assist with API implementation, authentication, and gain experience in backend development.",
+      "applyUrl": "https://example.com/apply/apiservices/django-intern"
+    },
+    {
+      "title": "ASP.NET Core Intern",
+      "company": "Enterprise Solutions",
+      "description": ".NET development internship for students interested in enterprise applications. You'll learn about building microservices using ASP.NET Core, domain-driven design patterns, and SQL Server databases.",
+      "applyUrl": "https://example.com/apply/enterprise/aspnet-intern"
+    },
+    {
+      "title": "ASP.NET Core Backend Intern",
+      "company": "SecureSoft",
+      "description": "Join our cybersecurity software team as an intern to learn backend development using ASP.NET Core. You'll assist with implementing secure APIs and learn about identity providers and security standards.",
+      "applyUrl": "https://example.com/apply/securesoft/backend-intern"
+    },
+    {
+      "title": ".NET Microservices Intern",
+      "company": "RetailTech",
+      "description": "Internship opportunity to learn about building retail management systems using ASP.NET Core microservices. You'll assist with inventory management features, order processing, and payment integrations.",
+      "applyUrl": "https://example.com/apply/retailtech/dotnet-intern"
+    },
+    {
+      "title": "ASP.NET Core API Intern",
+      "company": "Financial Systems",
+      "description": "Internship to develop skills in building financial processing APIs using ASP.NET Core. You'll learn about implementing business logic, ensuring transaction integrity, and optimizing database operations.",
+      "applyUrl": "https://example.com/apply/financialsystems/api-intern"
+    },
+    {
+      "title": "NestJS Backend Intern",
+      "company": "InnovateTech",
+      "description": "Join our backend development team as an intern working with NestJS. You'll learn about architectural decisions, coding standards, and gain hands-on experience developing our SaaS platform.",
+      "applyUrl": "https://example.com/apply/innovatetech/backend-intern"
+    },
+    {
+      "title": "Django/Python Development Intern",
+      "company": "Content Management Systems",
+      "description": "Join our team as an intern to learn about content management platforms using Django. You'll assist with implementing content workflows, search functionality, and user management features.",
+      "applyUrl": "https://example.com/apply/cms/django-intern"
+    },
+    {
+      "title": "ASP.NET DevOps Intern",
+      "company": "CloudOps",
+      "description": "Learn about automation and deployment pipelines for ASP.NET applications as an intern. You'll gain experience with CI/CD workflows, containerization, and Azure cloud resources.",
+      "applyUrl": "https://example.com/apply/cloudops/devops-intern"
+    },
+    {
+      "title": "Django E-commerce Intern",
+      "company": "ShopSmart",
+      "description": "E-commerce development internship using Django. You'll assist with implementing product catalog management, shopping cart functionality, and learn about payment processing integrations.",
+      "applyUrl": "https://example.com/apply/shopsmart/django-intern"
+    },
+    {
+      "title": "ASP.NET Identity Intern",
+      "company": "Identity Solutions",
+      "description": "Internship focused on learning about identity management systems built with ASP.NET Core Identity. You'll assist with authentication workflows and learn about authorization policies.",
+      "applyUrl": "https://example.com/apply/identity/intern"
+    },
+    {
+      "title": "NestJS GraphQL Intern",
+      "company": "API Platform",
+      "description": "Join our team as an intern to learn about building scalable GraphQL APIs using NestJS. You'll assist with implementing GraphQL schemas, resolvers, and learn about query optimization.",
+      "applyUrl": "https://example.com/apply/apiplatform/graphql-intern"
+    },
+    {
+      "title": "Django Data Pipeline Intern",
+      "company": "Data Insights",
+      "description": "Data engineering internship to learn about developing processing pipelines using Django and Celery. You'll assist with ETL processes and gain experience with data validation workflows.",
+      "applyUrl": "https://example.com/apply/datainsights/pipeline-intern"
+    },
+    {
+      "title": "ASP.NET Azure Cloud Intern",
+      "company": "Cloud Innovations",
+      "description": "Cloud development internship focused on ASP.NET Core applications hosted on Azure. You'll learn about serverless functions, Azure services, and cloud scalability patterns.",
+      "applyUrl": "https://example.com/apply/cloudinnovations/azure-intern"
+    },
+    {
+      "title": "React Frontend Intern",
+      "company": "UX Innovations",
+      "description": "Join our team as an intern to learn about building intuitive user interfaces using React. You'll assist with implementing UI components, state management with Redux, and responsive design.",
+      "applyUrl": "https://example.com/apply/uxinnovations/react-intern"
+    },
+    {
+      "title": "React/TypeScript Intern",
+      "company": "Web Applications Inc",
+      "description": "Frontend development internship using React and TypeScript. You'll learn about building reusable components, implementing application logic, and optimizing frontend performance.",
+      "applyUrl": "https://example.com/apply/webapps/react-intern"
+    },
+    {
+      "title": "React Native Intern",
+      "company": "Mobile Web Solutions",
+      "description": "Mobile development internship to learn about creating cross-platform applications using React Native. You'll assist with developing UI components and implementing navigation flows.",
+      "applyUrl": "https://example.com/apply/mobileweb/reactnative-intern"
+    },
+    {
+      "title": "Angular Development Intern",
+      "company": "Enterprise Web",
+      "description": "Angular internship to gain experience with enterprise web applications. You'll assist with implementing business workflows, creating reusable components, and learning about application performance.",
+      "applyUrl": "https://example.com/apply/enterpriseweb/angular-intern"
+    },
+    {
+      "title": "Angular/TypeScript Frontend Intern",
+      "company": "Dashboard Systems",
+      "description": "Internship opportunity to learn about building data visualization dashboards using Angular. You'll assist with implementing charts, data grids, and real-time updates.",
+      "applyUrl": "https://example.com/apply/dashboards/angular-intern"
+    },
+    {
+      "title": "React Redux Intern",
+      "company": "E-commerce Platform",
+      "description": "Frontend development internship focused on e-commerce using React and Redux. You'll learn about implementing shopping cart flows, product browsing, and checkout experiences.",
+      "applyUrl": "https://example.com/apply/ecommerce/react-intern"
+    },
+    {
+      "title": "Angular Material UI Intern",
+      "company": "Design Systems",
+      "description": "UI development internship working with Angular Material. You'll learn about developing reusable UI components, design tokens, and accessibility compliance for enterprise applications.",
+      "applyUrl": "https://example.com/apply/designsystems/angular-intern"
+    },
+    {
+      "title": "React Performance Intern",
+      "company": "Web Performance",
+      "description": "Internship focused on frontend optimization techniques for React applications. You'll learn about profiling, identifying bottlenecks, code splitting, and rendering optimization.",
+      "applyUrl": "https://example.com/apply/webperformance/react-intern"
+    },
+    {
+      "title": "Angular Frontend Intern",
+      "company": "FinTech Applications",
+      "description": "FinTech frontend development internship using Angular. You'll assist with building financial interfaces and learn about architectural patterns for complex applications.",
+      "applyUrl": "https://example.com/apply/fintech/angular-intern"
+    },
+    {
+      "title": "React Testing Intern",
+      "company": "Quality Engineering",
+      "description": "Testing internship for React applications. You'll learn about implementing unit tests with Jest, component tests with React Testing Library, and end-to-end tests with Cypress.",
+      "applyUrl": "https://example.com/apply/qa/react-intern"
+    },
+    {
+      "title": "Angular PWA Intern",
+      "company": "Progressive Web Apps",
+      "description": "Internship opportunity to learn about developing progressive web applications using Angular. You'll assist with implementing offline functionality and push notifications.",
+      "applyUrl": "https://example.com/apply/pwa/angular-intern"
+    },
+    {
+      "title": "React GraphQL Intern",
+      "company": "Data Platforms",
+      "description": "Frontend development internship focused on React and Apollo GraphQL. You'll learn about data fetching logic, caching strategies, and real-time updates for data-intensive applications.",
+      "applyUrl": "https://example.com/apply/dataplatforms/react-intern"
+    },
+    {
+      "title": "Angular NgRx Intern",
+      "company": "State Management Solutions",
+      "description": "Internship focused on learning complex state management using Angular and NgRx. You'll assist with implementing stores, effects, and selectors for enterprise applications.",
+      "applyUrl": "https://example.com/apply/statemanagement/angular-intern"
+    },
+    {
+      "title": "React Accessibility Intern",
+      "company": "Inclusive Design",
+      "description": "Accessibility-focused internship for React applications. You'll learn about implementing ARIA attributes, ensuring keyboard navigation, and testing with screen readers.",
+      "applyUrl": "https://example.com/apply/accessibility/react-intern"
+    },
+    {
+      "title": "Angular SPA Intern",
+      "company": "Single Page Applications",
+      "description": "Architecture-focused internship for single page applications using Angular. You'll learn about state management approaches, routing strategies, and module organization.",
+      "applyUrl": "https://example.com/apply/spa/intern"
+    },
+    {
+      "title": "Machine Learning Intern",
+      "company": "AI Solutions",
+      "description": "ML internship to learn about developing and deploying machine learning models. You'll work with TensorFlow and scikit-learn to assist with building classification and regression models.",
+      "applyUrl": "https://example.com/apply/ai/ml-intern"
+    },
+    {
+      "title": "NLP Intern",
+      "company": "Language Tech",
+      "description": "Natural language processing internship. You'll learn about text classification, sentiment analysis, and language generation models using libraries like spaCy and transformers.",
+      "applyUrl": "https://example.com/apply/languagetech/nlp-intern"
+    },
+    {
+      "title": "Computer Vision Intern",
+      "company": "Vision AI",
+      "description": "Computer vision internship to learn about image recognition technologies. You'll assist with implementing object detection, image segmentation using PyTorch and OpenCV.",
+      "applyUrl": "https://example.com/apply/visionai/cv-intern"
+    },
+    {
+      "title": "Deep Learning Research Intern",
+      "company": "Research Lab",
+      "description": "Research internship focused on deep learning models. You'll assist with implementing and testing neural network architectures and learn about academic research practices.",
+      "applyUrl": "https://example.com/apply/researchlab/deep-learning-intern"
+    },
+    {
+      "title": "ML Ops Intern",
+      "company": "Model Deployment",
+      "description": "DevOps internship for machine learning models. You'll learn about CI/CD pipelines for ML, monitoring systems, and model serving infrastructure deployment.",
+      "applyUrl": "https://example.com/apply/modeldeployment/mlops-intern"
+    },
+    {
+      "title": "Data Science Intern",
+      "company": "Analytics Solutions",
+      "description": "Data science internship to learn about analyzing data and building predictive models. You'll assist with implementing statistical models and conducting A/B tests.",
+      "applyUrl": "https://example.com/apply/analytics/data-science-intern"
+    },
+    {
+      "title": "Recommendation Systems Intern",
+      "company": "Personalization Tech",
+      "description": "Internship focused on recommendation engines for e-commerce. You'll learn about collaborative filtering, content-based filtering, and hybrid approaches for product recommendations.",
+      "applyUrl": "https://example.com/apply/personalization/recommender-intern"
+    },
+    {
+      "title": "Flutter Mobile Intern",
+      "company": "Mobile Innovations",
+      "description": "Mobile development internship using Flutter. You'll learn about building cross-platform applications, implementing UI components, and state management approaches.",
+      "applyUrl": "https://example.com/apply/mobileinnovations/flutter-intern"
+    },
+    {
+      "title": "Flutter Development Intern",
+      "company": "FinTech Mobile",
+      "description": "Flutter internship focused on financial applications. You'll assist with implementing financial workflows, secure authentication, and learn about cross-device performance optimization.",
+      "applyUrl": "https://example.com/apply/fintechmobile/flutter-intern"
+    },
+    {
+      "title": "Flutter UI/UX Intern",
+      "company": "Design-First Mobile",
+      "description": "UI/UX internship for Flutter applications. You'll learn about creating beautiful interfaces, implementing custom animations, and ensuring responsive layouts across devices.",
+      "applyUrl": "https://example.com/apply/designfirst/flutter-intern"
+    },
+    {
+      "title": "React Native Intern",
+      "company": "Cross-Platform Apps",
+      "description": "Mobile development internship using React Native. You'll learn about developing screens and components, implementing navigation, and integrating with backend services.",
+      "applyUrl": "https://example.com/apply/crossplatform/react-native-intern"
+    },
+    {
+      "title": "React Native Development Intern",
+      "company": "Social Media Mobile",
+      "description": "Social media app development internship using React Native. You'll assist with implementing messaging features, media sharing, and learn about mobile performance optimization.",
+      "applyUrl": "https://example.com/apply/socialmedia/react-native-intern"
+    },
+    {
+      "title": "Flutter State Management Intern",
+      "company": "Mobile Architecture",
+      "description": "Architecture-focused Flutter internship. You'll learn about state management solutions using Bloc, Provider, or Riverpod, and best practices for complex application state.",
+      "applyUrl": "https://example.com/apply/mobilearchitecture/flutter-intern"
+    },
+    {
+      "title": "React Native Navigation Intern",
+      "company": "Mobile UX",
+      "description": "Navigation-focused internship for React Native applications. You'll learn about implementing navigation patterns, screen transitions, and cross-platform performance considerations.",
+      "applyUrl": "https://example.com/apply/mobileux/navigation-intern"
+    },
+    {
+      "title": "Flutter Firebase Intern",
+      "company": "Mobile Backend",
+      "description": "Flutter internship with Firebase integration focus. You'll learn about implementing authentication, real-time databases, cloud functions, and push notifications.",
+      "applyUrl": "https://example.com/apply/mobilebackend/flutter-intern"
+    },
+    {
+      "title": "React Native Performance Intern",
+      "company": "Mobile Optimization",
+      "description": "Performance optimization internship for React Native applications. You'll learn about profiling, identifying bottlenecks, and implementing performance improvements.",
+      "applyUrl": "https://example.com/apply/mobileoptimization/react-native-intern"
+    },
+    {
+      "title": "Flutter Animations Intern",
+      "company": "Interactive Mobile",
+      "description": "Animation-focused Flutter internship. You'll learn about creating engaging animations, transitions, and micro-interactions to enhance user experience in mobile applications.",
+      "applyUrl": "https://example.com/apply/interactivemobile/flutter-intern"
+    },
+    {
+      "title": "React Native Module Intern",
+      "company": "Native Bridges",
+      "description": "Internship focused on native modules for React Native. You'll learn about building bridges between JavaScript and native code and cross-platform compatibility considerations.",
+      "applyUrl": "https://example.com/apply/nativebridges/modules-intern"
+    },
+    {
+      "title": "Flutter Connectivity Intern",
+      "company": "Offline-First Mobile",
+      "description": "Internship focused on offline capabilities in Flutter applications. You'll learn about local data persistence, synchronization strategies, and handling network connectivity changes.",
+      "applyUrl": "https://example.com/apply/offlinefirst/flutter-intern"
+    },
+    {
+      "title": "React Native UI Kit Intern",
+      "company": "Mobile Design Systems",
+      "description": "UI development internship for React Native. You'll assist with building reusable components, theming capabilities, and ensuring consistency across mobile products.",
+      "applyUrl": "https://example.com/apply/mobiledesignsystems/react-native-intern"
+    },
+    {
+      "title": "Flutter E-commerce Intern",
+      "company": "Mobile Commerce",
+      "description": "E-commerce mobile application internship using Flutter. You'll learn about implementing product browsing, shopping cart, checkout flows, and payment gateway integrations.",
+      "applyUrl": "https://example.com/apply/mobilecommerce/flutter-intern"
+    },
+    {
+      "title": "React Native Maps Intern",
+      "company": "Location Services",
+      "description": "Location features internship for React Native applications. You'll learn about integrating with mapping SDKs, implementing geolocation tracking, and building route visualization.",
+      "applyUrl": "https://example.com/apply/locationservices/maps-intern"
+    },
+    {
+      "title": "Flutter AR Intern",
+      "company": "Augmented Reality",
+      "description": "Augmented reality internship for Flutter applications. You'll learn about integrating with ARKit and ARCore, implementing 3D object rendering, and creating interactive AR features.",
+      "applyUrl": "https://example.com/apply/augmentedreality/flutter-intern"
+    },
+    {
+      "title": "React Native Accessibility Intern",
+      "company": "Inclusive Mobile",
+      "description": "Accessibility-focused internship for React Native applications. You'll learn about implementing screen reader support and ensuring applications meet accessibility guidelines.",
+      "applyUrl": "https://example.com/apply/inclusivemobile/accessibility-intern"
+    },
+    {
+      "title": "Flutter Gaming Intern",
+      "company": "Mobile Games",
+      "description": "Game development internship using Flutter. You'll learn about implementing game mechanics, animations, scoring systems, and ensuring smooth performance for mobile games.",
+      "applyUrl": "https://example.com/apply/mobilegames/flutter-intern"
+    },
+    {
+      "title": "React Native Chat App Intern",
+      "company": "Messaging Platforms",
+      "description": "Messaging features internship for React Native. You'll learn about implementing chat interfaces, message delivery status, typing indicators, and multimedia message support.",
+      "applyUrl": "https://example.com/apply/messagingplatforms/chat-intern"
+    },
+    {
+      "title": "Flutter Health & Fitness Intern",
+      "company": "Health Tech Mobile",
+      "description": "Health application internship using Flutter. You'll learn about implementing activity tracking, health data visualization, and integration with health device APIs.",
+      "applyUrl": "https://example.com/apply/healthtechmobile/flutter-intern"
+    },
+    {
+      "title": "React Native Audio/Video Intern",
+      "company": "Multimedia Mobile",
+      "description": "Multimedia features internship for React Native. You'll learn about implementing audio and video playback, building custom controls, and ensuring smooth streaming performance.",
+      "applyUrl": "https://example.com/apply/multimediamobile/av-intern"
+    }
+  ]
+}

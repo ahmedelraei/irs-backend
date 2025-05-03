@@ -18,6 +18,9 @@ export class Job {
   @Prop({ required: true })
   description: string;
 
+  @Prop({ required: true })
+  company: string;
+
   @Prop({ type: [Number], default: [] })
   jobTensor: number[];
 

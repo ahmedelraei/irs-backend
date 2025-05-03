@@ -15,6 +15,12 @@ export class CreateJobDto {
 
   @IsString()
   @IsNotEmpty()
+  @MinLength(3)
+  @MaxLength(50)
+  company: string;
+
+  @IsString()
+  @IsNotEmpty()
   @MinLength(5)
   @MaxLength(2000)
   applyUrl: string;
