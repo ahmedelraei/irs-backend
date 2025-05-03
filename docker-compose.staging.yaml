@@ -77,30 +77,30 @@ services:
 
     volumes:
       - ./nginx/nginx.staging.conf:/etc/nginx/nginx.conf
-      # - web-root:/var/www/certbot
-      # - certbot-etc:/etc/letsencrypt
-      # - certbot-var:/var/lib/letsencrypt
-      # - /home/ubuntu/dhparam:/etc/ssl/certs
+      - web-root:/var/www/certbot
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - /home/ubuntu/dhparam:/etc/ssl/certs
     depends_on:
       - app
 
-  # certbot:
-  #   image: certbot/certbot
-  #   container_name: certbot
-  #   entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-  #   volumes:
-  #     - certbot-etc:/etc/letsencrypt
-  #     - certbot-var:/var/lib/letsencrypt
-  #     - web-root:/var/www/certbot
-  #   depends_on:
-  #     - nginx
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/certbot
+    depends_on:
+      - nginx
 
 volumes:
   mongodb-data:
     driver: local
   rabbitmq-data:
     driver: local
-  # certbot-etc:
-  # certbot-var:
-  # web-root:
-  #   driver: local
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local

@@ -31,6 +31,9 @@ jobs:
           AWS_REGION='${{ secrets.AWS_REGION }}'
           RABBITMQ_URL='${{ secrets.RABBITMQ_URL }}'
           EOF
+
+          cp ./irs-api/.env ./ML/.env
+          cp ./irs-api/.env ./scraper/.env
         
       - name: Deploy to Staging
         run: |
