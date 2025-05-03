@@ -13,11 +13,32 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set up Environment
+        run: |
+          echo "Setting up environment variables..."
+
+          cat << EOF >> ./irs-api/.env
+          NODE_ENV=production
+          PORT=${{ secrets.PORT }}
+          MONGODB_USER=${{ secrets.MONGODB_USER }}
+          MONGODB_PASSWORD=${{ secrets.MONGODB_PASSWORD }}
+          MONGODB_DB=${{ secrets.MONGODB_DB }}
+          MONGODB_URI=mongodb://${{ secrets.MONGODB_USER }}:${{ secrets.MONGODB_PASSWORD }}@${{ secrets.MONGODB_HOST }}:27017/authSource=admin
+          JWT_SECRET=${{ secrets.JWT_SECRET }}
+          JWT_EXPIRATION=${{ secrets.JWT_EXPIRATION }}
+          JWT_REFRESH_EXPIRATION=${{ secrets.JWT_REFRESH_EXPIRATION }}
+          AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_ACCESS_SECRET_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET_NAME=${{ secrets.AWS_S3_BUCKET_NAME }}
+          AWS_REGION=${{ secrets.AWS_REGION }}
+          EOF
+          
+          echo "Environment variables set up successfully."
+
       - name: Deploy to Staging
         run: |
           NODE_ENV='production' \
           PORT='${{ secrets.PORT }}' \
-          MONGODB_DB='${{ secrets.MONGODB_DB }}' \
           MONGODB_USER='${{ secrets.MONGODB_USER }}' \
           MONGODB_PASSWORD='${{ secrets.MONGODB_PASSWORD }}' \
           MONGODB_DB='${{ secrets.MONGODB_DB }}' \
