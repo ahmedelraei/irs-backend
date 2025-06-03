@@ -209,8 +209,8 @@ export class JobService {
                 0.5, // Partial match gets medium score
               ],
             },
-            // Add a random component to break ties and ensure variety
-            randomFactor: { $rand: {} },
+            // Remove the random factor to ensure consistent results
+            // randomFactor: { $rand: {} },
           },
         },
         // Filter out jobs with low similarity scores (can adjust threshold)
@@ -219,9 +219,9 @@ export class JobService {
           $addFields: {
             finalScore: {
               $add: [
-                { $multiply: ['$similarity', 0.5] }, // 50% weight on similarity
-                { $multiply: ['$titleMatchScore', 0.4] }, // 40% weight on title match
-                { $multiply: ['$randomFactor', 0.1] }, // 10% weight on randomness
+                { $multiply: ['$similarity', 0.7] }, // 70% weight on similarity
+                { $multiply: ['$titleMatchScore', 0.3] }, // 30% weight on title match
+                // Removed random factor: { $multiply: ['$randomFactor', 0.1] }
               ],
             },
           },
@@ -231,7 +231,7 @@ export class JobService {
         {
           $project: {
             jobTensor: 0,
-            randomFactor: 0,
+            // randomFactor: 0, // Removed since we no longer have randomFactor
             titleMatchScore: 0,
             finalScore: 0,
           },
